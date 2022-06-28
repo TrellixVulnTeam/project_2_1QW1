@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/adminpage.css">
 
 </head>
 
@@ -106,12 +105,10 @@
         <div class="home-content">
             <div class="schedule">
                 <h1>Schedule</h1>
-
-                <div class="schedule-box">
-                    <p>Đơn 1</p>
-                    <p>Tên tài khoản</p>
-                    <p>bác sĩ</p>
-                    <p>hhhhh</p>
+                {{#each schedules}}
+                <div class="schedule-box schedule-box{{this._id}}" onmouseover="checkClass('{{this._id}}')">
+                    <p>Account: {{this.accountuser}}</p>
+                    <p>Doctorname: {{this.doctorname}}</p>
                     <button class="btn-1">Detail</button>
                     <button class="btn-2">Delete</button>
                     <div class="clear-schedule" >
@@ -120,31 +117,21 @@
                         <button class="clear-2">Cancel</button>
                     </div>
                 </div>
-                <div class="schedule-detail">
-                    <h1>Detail</h1>
+                <div class="schedule-detail schedule-detail{{this.id}}">
+                    <p>Username: {{this.username}}</p>
+                    <p>Patient: {{this.for}}</p>
+                    <p>Phone: {{this.phone}}</p>
+                    <p>Address: {{this.address}}</p>
+                    <p>Time: {{this.timeday}} ({{this.timehours}})</p>
+                    <p>Email: {{this.email}}</p>
                 </div>
+                {{/each}}
                 
-                <div class="schedule-box">
-                    <p>Đơn 1</p>
-                    <p>Tên tài khoản</p>
-                    <p>bác sĩ</p>
-                    <p>hhhhh</p>
-                    <button class="btn-1" onclick="Detail()">Detail</button>
-                    <button class="btn-2">Delete</button>
-                    <div class="clear-schedule" >
-                        <h3>Do you want to clear this schedule?</h3>
-                        <button class="clear-1">Remove</button>
-                        <button class="clear-2">Cancel</button>
-                    </div>
-                </div>
-                <div class="schedule-detail">
-                    <h1>Detail</h1>
-                </div>
+                
             </div>
         </div>
     </section>
-    {{!-- <script src="/js/adminpage.js"></script> --}}
-
+    {{!-- <script src="/css/adminpage.css"></script> --}}
 </body>
 
 </html>

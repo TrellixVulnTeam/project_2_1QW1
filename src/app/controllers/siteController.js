@@ -1,6 +1,7 @@
 const user = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 const feedback = require('../models/feedbackModel')
+const schedule = require('../models/scheduleModel')
 
 class siteController {
 
@@ -132,11 +133,16 @@ class siteController {
                                                 user.where({ role: 1 }).count(function (err, countuser) {
                                                     user.where({ role: 2 }).count(function (err, countdoctor) {
                                                         user.where({ role: 3 }).count(function (err, countadmin) {
-                                                            feedbacks = feedbacks.map(feedback => feedback.toObject())
-                                                            res.render('site/adminpage', {
-                                                                users, feedbacks,
-                                                                countuser, countdoctor, countadmin
+                                                                feedbacks = feedbacks.map(feedback => feedback.toObject())
+                                                                var scheduleQuery = schedule.where({}).sort({ "_id": -1 }).find({})
+                                                                scheduleQuery.limit(10).find(function (err,schedules) {
+                                                                    schedules= schedules.map(schedule => schedule.toObject())
+                                                                    res.render('site/adminpage', {
+                                                                    users, feedbacks, schedules,
+                                                                    countuser, countdoctor, countadmin
+                                                                })
                                                             })
+                                                            
                                                         })
                                                     })
                                                 })
