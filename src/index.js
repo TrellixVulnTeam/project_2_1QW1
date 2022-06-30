@@ -57,6 +57,9 @@ db.connect()
 //listen
 const port = 5000
 
+app.get('/test', function(req, res) {
+    res.json({ message: 'WELCOME' });   
+});
 app.listen(port, function(error){
     if (error) {
         console.log("Something went wrong");

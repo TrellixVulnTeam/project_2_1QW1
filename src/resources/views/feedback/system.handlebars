@@ -32,17 +32,17 @@
             </div>
             <form action="/feedback" method="post">
                 <div class="inputBox">
-                    <input type="text" placeholder="Tên của bạn là gì?" name="name" value="{{userdata.name}}">
-                    <select name="title">
+                    <input type="text" placeholder="Tên của bạn là gì?" name="name" value="{{userdata.name}}" required>
+                    <select name="title" required>
                         <option value="">Nhấn để lựa chọn</option>
                         <option value="Phản hồi về chất lượng hệ thống">Phản hồi về chất lượng hệ thống</option>
                         <option value="Phản hồi về bác sĩ">Phản hồi về bác sĩ</option>
                     </select>
                 </div>
                 <textarea placeholder="Nội dung mà bạn muốn đánh giá là gì?" name="content" id="" cols="30"
-                    rows="10"></textarea>
+                    rows="10" required></textarea>
                 <div class="inputBox rate">
-                    <select name="rate">
+                    <select name="rate" required>
                         <option value="">Lựa chọn mức độ hài lòng</option>
                         <option value="5">Rất hài lòng (5 sao)</option>
                         <option value="4">Hài lòng (4 sao)</option>

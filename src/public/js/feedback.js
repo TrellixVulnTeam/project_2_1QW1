@@ -23,7 +23,7 @@ $("form").submit(function(e) {
         data: form.serialize(), // serializes the form's elements.
         success: function(data)
         {
-          alert('Đã thêm bình luận'); // show response from the php script.
+            alert('Đã thêm bình luận'); // show response from the php script.
         }
     });
     

@@ -103,10 +103,11 @@
 
 
         <div class="home-content">
-            <div class="schedule">
+            <div class="schedule"  >
                 <h1>Schedule</h1>
                 {{#each schedules}}
-                <div class="schedule-box schedule-box{{this._id}}" onmouseover="checkClass('{{this._id}}')">
+                <div class="handle{{this._id}}" onmouseover="checkClass('{{this._id}}')">
+                  <div class="schedule-box" >
                     <p>Account: {{this.accountuser}}</p>
                     <p>Doctorname: {{this.doctorname}}</p>
                     <button class="btn-1">Detail</button>
@@ -116,15 +117,17 @@
                         <button class="clear-1">Remove</button>
                         <button class="clear-2">Cancel</button>
                     </div>
+                    </div>
+                    <div class="schedule-detail">
+                        <p>Username: {{this.username}}</p>
+                        <p>Patient: {{this.for}}</p>
+                        <p>Phone: {{this.phone}}</p>
+                        <p>Address: {{this.address}}</p>
+                        <p>Time: {{this.timeday}} ({{this.timehours}})</p>
+                        <p>Email: {{this.email}}</p>
+                    </div>  
                 </div>
-                <div class="schedule-detail schedule-detail{{this.id}}">
-                    <p>Username: {{this.username}}</p>
-                    <p>Patient: {{this.for}}</p>
-                    <p>Phone: {{this.phone}}</p>
-                    <p>Address: {{this.address}}</p>
-                    <p>Time: {{this.timeday}} ({{this.timehours}})</p>
-                    <p>Email: {{this.email}}</p>
-                </div>
+                
                 {{/each}}
                 
                 

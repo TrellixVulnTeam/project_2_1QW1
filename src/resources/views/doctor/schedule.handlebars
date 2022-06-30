@@ -7,6 +7,7 @@
     <title>HustCARE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/book.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                 
                 <div class="inputBox">
                     <h3>Họ và Tên</h3>
-                    <input type="text" name="username" disabled="true" value="{{userdata.name}}">
+                    <input type="text" name="username" disabled="true" value="{{userdata.name}}" required>
                 </div>
                 <div class="inputBox">
                     <h3>Khám cho ai</h3>
@@ -59,7 +60,7 @@
                     <input type="date" placeholder="Lựa chọn ngày khám" name="timeday" required>
                 </div>
                 <div class="inputBox">
-                    <h3>Giờ khám</h3>
+                    <h3>Giờ khám (Chọn 8h - 9h - 10h - 14h - 15h - 16h - 17h - 18h - 19h)</h3>
                     <input type="time" placeholder="Lựa chọn giờ khám" name="timehours" required>
                 </div>
                 <div class="inputBox">
@@ -70,5 +71,12 @@
             </form>
         </div>
     </section>
+
+    <script>
+        document.querySelector('form .btn').onclick = function(e) {
+            e.preventDefault()
+        }
+    </script>
+    <script src="/js/schedule.js"></script>
 </body>
 </html>
