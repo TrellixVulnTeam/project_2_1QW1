@@ -1020,7 +1020,30 @@ section {
   padding-bottom: 0rem; }
 
 .about .row-1 .image {
-  flex: 1 1 25rem; }
+  flex: 1 1 25rem;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px; }
+
+.image form {
+  height: 100px;
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 200px;
+  display: none;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #fbe9e9; }
+
+.image form input {
+  display: block;
+  width: 80%;
+  height: 25px;
+  margin: 0 auto;
+  margin-top: 15px;
+  background: white;
+  cursor: pointer; }
 
 .about .row-1 .image img {
   height: 97%;
@@ -1028,7 +1051,8 @@ section {
   object-fit: cover;
   border: 1rem solid #fff;
   border-radius: 30rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
 
 .about .row-1 .content {
   flex: 1 1 50rem; }

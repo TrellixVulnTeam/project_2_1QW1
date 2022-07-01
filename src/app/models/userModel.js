@@ -14,6 +14,7 @@ const users=new Schema({
     origin: String,
     email: String,
     stt: String,
+    avatar: String,
 }, {
     timestamps: true,
 })

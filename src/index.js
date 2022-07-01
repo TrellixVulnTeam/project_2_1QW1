@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser')
 const methodOverride = require('method-override')
 const pascalCase=require('string-helper')
 const nodemailer = require('nodemailer')
+const multer  = require('multer')
 const app = express()
 //public file
 app.use(express.static(path.join(__dirname, 'public')))
@@ -42,6 +43,16 @@ app.set('views',path.join(__dirname, 'resources/views'))
 //body parser
 app.use(bodyParser.urlencoded({extended: true}))
 
+//upload file
+var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, 'src/public/uploads' )
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.originalname)
+    }
+})
+var upload = multer({storage: storage}).single('avatar')
 //cookies
 app.use(cookieParser())
 
@@ -58,8 +69,18 @@ db.connect()
 const port = 5000
 
 app.get('/test', function(req, res) {
-    res.json({ message: 'WELCOME' });   
-});
+    res.render('site/test') 
+})
+app.post('/test', function(req, res) {
+    upload(req, res, function(err){
+        if(err) {
+            console.log(err)
+            return res.end('err')
+        }
+        res.end('upload successfully')
+    })
+    
+})
 app.listen(port, function(error){
     if (error) {
         console.log("Something went wrong");
