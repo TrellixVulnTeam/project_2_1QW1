@@ -134,7 +134,7 @@ class infoController {
                 .then((data) => {
                   console.log("Update thành công");
                   console.log(data);
-                  res.end('Upload successfully')
+                  res.redirect('/information')
                 })
                 .catch((err) => {
                   console.error(err);

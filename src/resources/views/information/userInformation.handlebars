@@ -43,9 +43,9 @@
 
             <div class="image">
                 <img src="uploads/{{ userdata.avatar}}" alt="" title="Thêm ảnh đại diện">
-                <form action="/information/upload" method="post" enctype="multipart/form-data" >
-                    <input type="file" name="avatar"/ required="true">
-                    <input type="submit" value="upload image" class="submit">
+                <form  enctype="multipart/form-data" action="/information/upload" method="post">
+                    <input type="file" name="avatar" required="true" />
+                    <input  type="submit" value="upload image" class="submit">
                 </form>  
             </div>
 
